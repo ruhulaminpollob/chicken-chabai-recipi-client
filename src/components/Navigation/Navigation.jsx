@@ -15,12 +15,12 @@ const Navigation = () => {
 
 
     return (
-        <div className="navbar bg-red-600 md:px-20">
+        <div className="navbar bg-red-500 md:px-20 shadow">
             <div className="flex-1">
                 <h1 className="   normal-case font-bold text-yellow-200 text-xl">Chicken Chabai Recipe</h1>
             </div>
             <div className="flex-none gap-2">
-                <div>
+                <div className='text-gray-700'>
                     <ul className=' flex gap-2 font-bold'>
                         <Link to="/" >Home</Link>
                         <Link to="/blogs" >Blog</Link>
