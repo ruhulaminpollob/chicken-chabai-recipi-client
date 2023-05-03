@@ -5,11 +5,12 @@ import Blogs from "../components/Blogs/Blogs";
 import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 import Recipe from "../components/Recipe/Recipe";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element:<Main></Main>,
+        element: <Main></Main>,
         children: [
             {
                 path: '/',
@@ -17,24 +18,29 @@ const router = createBrowserRouter([
                 // loader:()=>{fetch("http://localhost:5000/chef")}
             },
             {
-                path:"blogs",
-                element:<Blogs></Blogs>
+                path: "blogs",
+                element: <Blogs></Blogs>
             },
             {
-                path:"login",
-                element:<Login />
+                path: "login",
+                element: <Login />
             },
             {
-                path:"signup",
-                element:<SignUp />
+                path: "signup",
+                element: <SignUp />
             },
             {
-                path:"recipe/:recipeId",
-                element:<Recipe />,
-                loader:({params})=>fetch(`http://localhost:5000/chef/${params.recipeId}`),
+                path: "recipe/:recipeId",
+                element: <Recipe />,
+                loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.recipeId}`),
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
+
 ])
 
 export default router;
