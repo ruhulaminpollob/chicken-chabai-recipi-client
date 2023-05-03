@@ -6,7 +6,10 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { UserCircleIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 
 const Navigation = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, loading,setLoading } = useContext(AuthContext)
+
+
+   
     console.log(user);
 
 
@@ -19,14 +22,21 @@ const Navigation = () => {
             <div className="flex-none gap-2">
                 <div>
                     <ul className=' flex gap-2 font-bold'>
-                        <Link to="/home" >Home</Link>
+                        <Link to="/" >Home</Link>
                         <Link to="/blogs" >Blog</Link>
                         <>
                             {
 
                                 user ? <>
-                                    
-                                    <UserCircleIcon className="h-6 w-6 text-yellow-200" />
+
+                                    <>
+                                        {
+
+                                            user?.photoURL ? <img src={user.photoURL} title={user?.name} alt="" /> : <UserCircleIcon className="h-6 w-6 text-yellow-200" />
+                                        }
+
+
+                                    </>
                                     <Link onClick={() => { logOut() }} to="/login" >Log Out <ArrowRightOnRectangleIcon className='h-6 w-6 text-white inline'></ArrowRightOnRectangleIcon> </Link>
 
                                 </> : <Link to="/login" >Login</Link>

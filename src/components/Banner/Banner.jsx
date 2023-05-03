@@ -13,6 +13,14 @@ const Banner = () => {
                     <a href="#slide4" className="btn btn-circle">❮</a>
                     <a href="#slide2" className="btn btn-circle">❯</a>
                 </div>
+                <div className="absolute  transform -translate-y-1/2 left-5 md:left-20 top-1/2">
+                    <h2 className="text-2xl font-bold">Welcome to <span className="text-yellow-400">Chicken Cabai Recipe</span></h2>
+                    <div>
+                        <h1 className="text-xl font bold">To see more delicious Chicken Recipe</h1>
+                    </div>
+                    <button className="text-white bg-red-600 p-2 rounded ">Subscribe</button>
+
+                </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
                 <img src={banner2} className="w-full" />

@@ -9,14 +9,20 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const SignUp = () => {
     const [error, setError] = useState('')
-    const { user, loading, createUser, logOut, googleSignIn, githubSignIn } = useContext(AuthContext)
+    const { user, loading,setLoading,  createUser, logOut, googleSignIn, githubSignIn, userData } = useContext(AuthContext)
     const [show, setShow] = useState(true)
+    
 
+    
 
     const handleSignUp = event => {
+
+        
         event.preventDefault()
         setError('')
         const form = event.target;
+        // const name = form.name.value;
+        // const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
@@ -28,14 +34,14 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                const loggedUser = result.user;
-                form.reset()
-                console.log(loggedUser);
+                
             })
             .catch(error => {
-                console.log(error.message)
-                setError(error.message)
+                
             })
+
+
+        
 
     }
 
@@ -43,9 +49,10 @@ const SignUp = () => {
         googleSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                form.reset()
+                // form.reset()
                 console.log(loggedUser);
                 navigate('/')
+            
             })
             .catch(error => {
                 console.log(error.message)
@@ -56,7 +63,7 @@ const SignUp = () => {
         githubSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                form.reset()
+                // form.reset()
                 console.log(loggedUser);
                 navigate('/')
             })
@@ -78,6 +85,18 @@ const SignUp = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSignUp} className="card-body">
+                            {/* <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder="Name" name='name' required className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text" placeholder="Photo URL" name='photo' required className="input input-bordered" />
+                            </div> */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -111,6 +130,7 @@ const SignUp = () => {
                                 <hr className='border-b-2' />
                                 <p className=' p-2 relative -top-6 bg-white w-fit mx-auto'>or</p>
                             </div>
+                        </form>
                             <div className='text-center'>
                                 <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
                             </div>
@@ -118,7 +138,6 @@ const SignUp = () => {
                                 <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
                             </div>
                             <p className='text-red-400'>{error}</p>
-                        </form>
                     </div>
                 </div>
             </div>
