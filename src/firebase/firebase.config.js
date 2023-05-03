@@ -3,14 +3,17 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+
 // Your web app's Firebase configuration
+
+console.log('environment variable', import.meta.env.VITE_PASS)
 const firebaseConfig = {
-  apiKey: "AIzaSyBu_wJ1zn1_HHWVJk0i_ILXeAvuHrZphOk",
-  authDomain: "chicken-chabai-recipi.firebaseapp.com",
-  projectId: "chicken-chabai-recipi",
-  storageBucket: "chicken-chabai-recipi.appspot.com",
-  messagingSenderId: "73504657919",
-  appId: "1:73504657919:web:a4abcff561085242ee97ca"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
