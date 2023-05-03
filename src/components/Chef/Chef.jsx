@@ -1,8 +1,10 @@
 import { HeartIcon } from '@heroicons/react/24/solid';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Chef = ({ single }) => {
-
+    
+    const navigate=useNavigate()
     const { _id, name, image, experience, recipes, ratings, likes } = single
     console.log(single);
     return (
@@ -14,7 +16,7 @@ const Chef = ({ single }) => {
                 <p>Total Recipes: {recipes}</p>
                 <p > <span><HeartIcon className='h-6 w-6 inline text-red-500' /> </span> {likes}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-outline btn-success">View Recipe</button>
+                    <button onClick={()=>{navigate(`/recipe/${_id}`)}} className="btn btn-outline btn-success">View Recipe</button>
                 </div>
             </div>
         </div>
