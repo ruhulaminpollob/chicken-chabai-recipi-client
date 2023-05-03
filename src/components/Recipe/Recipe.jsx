@@ -9,7 +9,8 @@ const Recipe = () => {
     const [singleChef, setSingle] = useState(recipeId)
 
 
-    const { image, name, known_for, experience, recipes, likes } = singleChef
+    const { image, name, known_for, experience, recipes, likes } = singleChef;
+    
     return (
         <div>
             <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -29,9 +30,10 @@ const Recipe = () => {
                 <h1 className='text-center text-4xl font-bold my-5'>Some Featured Recipe of {name}</h1>
                 <hr className='w-10/12 mx-auto border-amber-400 border-2 opacity-50' />
                 <div className='grid grid-cols-3 mx-10 gap-10'>
-                    <div className='bg-blue-400 rounded'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum id fuga, eius voluptates sunt, iusto in molestiae, amet aliquid corrupti deleniti? Officia, iste optio reiciendis ducimus culpa libero veritatis alias in accusantium nesciunt, magni quo. Cumque commodi maiores nobis, quibusdam quo, itaque voluptates consequatur repudiandae atque expedita dignissimos dolore aliquam?</div>
-                    <div className='bg-blue-400 rounded'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum id fuga, eius voluptates sunt, iusto in molestiae, amet aliquid corrupti deleniti? Officia, iste optio reiciendis ducimus culpa libero veritatis alias in accusantium nesciunt, magni quo. Cumque commodi maiores nobis, quibusdam quo, itaque voluptates consequatur repudiandae atque expedita dignissimos dolore aliquam?</div>
-                    <div className='bg-blue-400 rounded'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum id fuga, eius voluptates sunt, iusto in molestiae, amet aliquid corrupti deleniti? Officia, iste optio reiciendis ducimus culpa libero veritatis alias in accusantium nesciunt, magni quo. Cumque commodi maiores nobis, quibusdam quo, itaque voluptates consequatur repudiandae atque expedita dignissimos dolore aliquam?</div>
+                    <div className='bg-blue-400 rounded'> </div>
+
+                    
+                    {/* <Recipe /> */}
                 </div>
             </div>
         </div>

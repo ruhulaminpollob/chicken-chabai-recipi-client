@@ -6,7 +6,6 @@ const Chef = ({ single }) => {
     
     const navigate=useNavigate()
     const { _id, name, image, experience, recipes, ratings, likes } = single
-    console.log(single);
     return (
         <div className="card card-compact w-72 my-5 bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>

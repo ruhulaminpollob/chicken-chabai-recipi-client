@@ -10,7 +10,7 @@ const Navigation = () => {
 
 
    
-    console.log(user);
+    // console.log(user);
 
 
 

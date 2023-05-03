@@ -16,7 +16,7 @@ const Home = () => {
             .then(data => setChef(data))
 
     }, [])
-    console.log(chef);
+    // console.log(chef);
 
 
     return (
