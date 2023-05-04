@@ -32,7 +32,7 @@ const Navigation = () => {
                                     <>
                                         {
 
-                                            user?.photoURL ? <img className='w-8 h-8 rounded-full  ml-2 md:ml-5 border-2 border-yellow-300' src={user.photoURL} title={user?.displayName} alt="" /> : <UserCircleIcon className="h-8 w-8 ml-2 md:ml-5 text-yellow-200" />
+                                            user?.photoURL ? <div className="w-8 h-8 rounded-full  ml-2 md:ml-5 border-2 border-yellow-300" ><img className=' overflow-hidden bg-cover rounded-full' src={user.photoURL} title={user?.displayName} alt="" /></div> : <UserCircleIcon className="h-8 w-8 ml-2 md:ml-5 text-yellow-200" />
                                         }
 
 

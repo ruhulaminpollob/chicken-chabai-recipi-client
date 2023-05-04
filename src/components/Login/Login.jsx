@@ -19,7 +19,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 form.reset()
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
@@ -30,12 +30,11 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        console.log(googleSignIn);
+        // console.log(googleSignIn);
         googleSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                form.reset()
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
@@ -47,8 +46,7 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                form.reset()
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
@@ -99,13 +97,13 @@ const Login = () => {
                                 <p className=' p-2 relative -top-6 bg-white w-fit mx-auto'>or</p>
                             </div>
                         </form>
-                            <div className='text-center'>
-                                <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
-                            </div>
-                            <div className='text-center'>
-                                <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
-                            </div>
-                            <p className='text-red-400'>{error}</p>
+                        <div className='text-center'>
+                            <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
+                        </div>
+                        <div className='text-center'>
+                            <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
+                        </div>
+                        <p className='text-red-400'>{error}</p>
                     </div>
                 </div>
             </div>

@@ -24,14 +24,14 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
     
-    const userData=(name,photo)=>{
+    const userData=(name,)=>{
         updateProfile(auth.user,{
             displayName:name,
         })
     }
     const googleSignIn=()=>{
         return signInWithPopup(auth,provider)
-        
+
     }
     const githubSignIn=()=>{
         return signInWithPopup(auth,githubProvider)

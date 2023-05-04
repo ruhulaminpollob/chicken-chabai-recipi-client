@@ -17,8 +17,6 @@ const SignUp = () => {
 
     const navigate=useNavigate()
     const handleSignUp = event => {
-
-        
         event.preventDefault()
         setError('')
         const form = event.target;
@@ -65,7 +63,7 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 // form.reset()
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
@@ -94,9 +92,9 @@ const SignUp = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text">Photo URL (Optional)</span>
                                 </label>
-                                <input type="text" placeholder="Photo URL" name='photo' required className="input input-bordered" />
+                                <input type="text" placeholder="Photo URL (Optional)" name='photo'  className="input input-bordered" />
                             </div> */}
                             <div className="form-control">
                                 <label className="label">
