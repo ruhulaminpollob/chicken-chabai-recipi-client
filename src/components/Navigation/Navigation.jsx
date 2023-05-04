@@ -1,29 +1,32 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { UserCircleIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
+import "./Navigation.css"
 
 const Navigation = () => {
-    const { user, logOut, loading,setLoading } = useContext(AuthContext)
+    const { user, logOut, loading, setLoading ,auth } = useContext(AuthContext)
 
 
-   
+    const [open, setOpen] = useState(false)
+
     // console.log(user);
 
 
 
     return (
-        <div className="navbar bg-red-500 md:px-20 shadow">
+        <div className="navbar bg-red-500 md:py-10 md:px-20 shadow">
             <div className="flex-1">
                 <h1 className="   normal-case font-bold text-yellow-200 text-xl">Chicken Chabai Recipe</h1>
             </div>
             <div className="flex-none gap-2">
                 <div className='text-gray-700'>
                     <ul className=' flex gap-2 font-bold'>
-                        <Link to="/" >Home</Link>
-                        <Link to="/blogs" >Blog</Link>
+                        <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to='/'>Home</NavLink>
+                        <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/blogs">Blogs</NavLink>
+                        
                         <>
                             {
 
@@ -32,14 +35,14 @@ const Navigation = () => {
                                     <>
                                         {
 
-                                            user?.photoURL ? <div className="w-8 h-8 rounded-full  ml-2 md:ml-5 border-2 border-yellow-300" ><img className=' overflow-hidden bg-cover rounded-full' src={user.photoURL} title={user?.displayName} alt="" /></div> : <UserCircleIcon className="h-8 w-8 ml-2 md:ml-5 text-yellow-200" />
+                                            user.photoURL ? <div className="w-8 h-8 rounded-full  ml-2 md:ml-5 border-2 border-yellow-300" ><img className=' overflow-hidden bg-cover rounded-full' src={user.photoURL} title={user?.displayName ? user?.displayName : 'No Name'} alt="" /></div> : <UserCircleIcon title={user?.displayName ? user?.displayName : 'No Name'} className="h-8 w-8 ml-2 md:ml-5 text-yellow-200" />
                                         }
 
 
                                     </>
-                                    <Link onClick={() => { logOut() }} to="/login" >Log Out <ArrowRightOnRectangleIcon className='h-6 w-6 text-white inline'></ArrowRightOnRectangleIcon> </Link>
+                                    <NavLink onClick={() => { logOut() }} className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">LogOut<ArrowRightOnRectangleIcon className='h-6 w-6 text-white inline'></ArrowRightOnRectangleIcon></NavLink>
 
-                                </> : <Link to="/login" >Login</Link>
+                                </> : <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">Login</NavLink>
 
                             }
                         </>

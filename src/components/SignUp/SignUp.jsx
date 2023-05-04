@@ -1,5 +1,6 @@
 
 
+import { updateProfile } from 'firebase/auth';
 import { Result } from 'postcss';
 import React from 'react';
 import { useContext } from 'react';
@@ -9,40 +10,62 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const SignUp = () => {
     const [error, setError] = useState('')
-    const { user, loading,setLoading,  createUser, logOut, googleSignIn, githubSignIn, userData } = useContext(AuthContext)
+    const { user, loading, setLoading, createUser, logOut, googleSignIn, githubSignIn, userData, auth } = useContext(AuthContext)
     const [show, setShow] = useState(true)
-    
 
-    
 
-    const navigate=useNavigate()
+    // console.log(auth.user);
+
+    const navigate = useNavigate()
     const handleSignUp = event => {
         event.preventDefault()
         setError('')
         const form = event.target;
-        // const name = form.name.value;
-        // const photo = form.photo.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
 
         if (password !== confirm) {
-            setError('Password does not match')
+            return setError('Password does not match')
         }
-        console.log(email, password);
+        if (password.length < 6) {
+            return setError('You have to set at lest 6 character password')
+        }
+        console.log(email, password, name);
 
-        createUser(email, password)
+        createUser(email, password )
             .then(result => {
+                //----------- update user data here-----------
+                userData(user,name, photo)
+                    .then(() => {
+                        console.log('user got it');
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        setError(error)
+                    })
+
+                    // console.log(result.user);
                 navigate("/login")
             })
             .catch(error => {
-                
+                console.log(error);
+                setError(error.message)
+
             })
+
 
 
         
 
+
+
+
     }
+
+
 
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -51,7 +74,7 @@ const SignUp = () => {
                 // form.reset()
                 console.log(loggedUser);
                 navigate('/')
-            
+
             })
             .catch(error => {
                 console.log(error.message)
@@ -84,7 +107,7 @@ const SignUp = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSignUp} className="card-body">
-                            {/* <div className="form-control">
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
@@ -95,7 +118,7 @@ const SignUp = () => {
                                     <span className="label-text">Photo URL (Optional)</span>
                                 </label>
                                 <input type="text" placeholder="Photo URL (Optional)" name='photo'  className="input input-bordered" />
-                            </div> */}
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -130,13 +153,13 @@ const SignUp = () => {
                                 <p className=' p-2 relative -top-6 bg-white w-fit mx-auto'>or</p>
                             </div>
                         </form>
-                            <div className='text-center'>
-                                <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
-                            </div>
-                            <div className='text-center'>
-                                <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
-                            </div>
-                            <p className='text-red-400'>{error}</p>
+                        <div className='text-center'>
+                            <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
+                        </div>
+                        <div className='text-center'>
+                            <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
+                        </div>
+                        <p className='text-red-400'>{error}</p>
                     </div>
                 </div>
             </div>

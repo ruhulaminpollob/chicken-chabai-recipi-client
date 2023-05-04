@@ -4,17 +4,18 @@ import Rating from 'react-rating';
 import { FaBookmark, FaRegBookmark, FaRegStar, FaStar } from "react-icons/fa";
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyRecipes = ({ singleRecipe, ratings }) => {
     const { id, name, ingredients, description } = singleRecipe;
 
-    const [fav ,setFav]=useState(false)
 
-    const handelBookmark=()=>{
+    const [fav, setFav] = useState(false)
+
+    const handelBookmark = () => {
         setFav(!fav)
         if (!fav) {
-            
+
             toast(`${name}  Marked As Your Favorite Recipe`)
         }
     }
@@ -50,9 +51,11 @@ const MyRecipes = ({ singleRecipe, ratings }) => {
                         fullSymbol={<FaStar className='text-yellow-400'></FaStar>}></Rating>
                 </div>
                 <div>
-                    <button onClick={handelBookmark} className="flex items-center gap-2 font-bold" > <span>Mark As Favorite </span>{ fav ? <FaBookmark /> : <FaRegBookmark />}</button>
+                    <button onClick={handelBookmark} className="flex items-center gap-2 font-bold" > <span>Mark As Favorite </span>{fav ? <FaBookmark /> : <FaRegBookmark />}</button>
                 </div>
             </div>
+
+           
         </div>
     );
 };

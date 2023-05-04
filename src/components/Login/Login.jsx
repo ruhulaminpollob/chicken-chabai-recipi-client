@@ -30,11 +30,10 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        // console.log(googleSignIn);
         googleSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                // console.log(loggedUser);
+                console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
@@ -46,7 +45,7 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 const loggedUser = result.user;
-                // console.log(loggedUser);
+                console.log(loggedUser);
                 navigate('/')
             })
             .catch(error => {
