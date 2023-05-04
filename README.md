@@ -1,8 +1,7 @@
 # Chicken Cabai Recipe
 
 Chicken Cabai Recipe is the best recipe website. visit Chicken Cabai Recipe 
-
-[![Chicken Cabai Recipe](## 🔗 Links)](https://chicken-chabai-recipi.web.app/)
+## 🔗 Links(https://chicken-chabai-recipi.web.app/)
 
 https://chicken-chabai-recipi.web.app/
 
