@@ -9,7 +9,7 @@ import Spinner from '../Spinner/Spinner';
 
 const Recipe = () => {
     const [loading, setLoading] = useState(true)
-    
+
     const recipeId = useLoaderData({})
     const [singleChef, setSingle] = useState(recipeId)
     const [myRecipes, setMyRecipes] = useState({})
@@ -18,7 +18,7 @@ const Recipe = () => {
     useEffect(() => {
         setLoading(true)
         
-        fetch(`http://localhost:5000/recipes/${_id}`)
+        fetch(`https://chicken-chabai-server-ruhulaminpollob.vercel.app/recipes/${_id}`)
             .then(res => res.json())
             .then(data => setMyRecipes(data))
 
