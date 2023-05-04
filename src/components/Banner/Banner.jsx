@@ -29,11 +29,11 @@ const Banner = () => {
                     <a href="#slide3" className="btn opacity-30 btn-circle">❯</a>
                 </div>
                 <div className="absolute  transform -translate-y-1/2 left-5 md:left-20 top-1/2">
-                    <h2 className="text-2xl font-bold">Welcome to <span className="text-yellow-400">Chicken Cabai Recipe</span></h2>
+                    <h2 className="text-xl md:text-4xl font-bold">Welcome to <span className="text-yellow-400">Chicken Cabai Recipe</span></h2>
                     <div>
-                        <h1 className="text-xl font bold">To see more delicious Chicken Recipe</h1>
+                        <h1 className="md:text-xl md:my-5 shadow  font-bold">To see more delicious Chicken Recipe</h1>
                     </div>
-                    <button className="text-white bg-red-600 p-2 rounded ">Subscribe</button>
+                    <button className="text-white bg-red-500 p-2 rounded ">Subscribe</button>
 
                 </div>
 

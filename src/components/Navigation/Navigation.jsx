@@ -19,7 +19,7 @@ const Navigation = () => {
     return (
         <div className="navbar bg-red-500 md:py-10 md:px-20 shadow">
             <div className="flex-1">
-                <h1 className="   normal-case font-bold text-yellow-200 text-xl">Chicken Chabai Recipe</h1>
+                <h1 className="   normal-case font-bold text-yellow-200 text-xl md:text-4xl">Chicken Chabai Recipe</h1>
             </div>
             <div className="flex-none gap-2">
                 <div className='text-gray-700'>

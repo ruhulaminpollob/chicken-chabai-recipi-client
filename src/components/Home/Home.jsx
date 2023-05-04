@@ -17,14 +17,14 @@ const Home = () => {
     const [clients, setClients] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/chef")
+        fetch("https://chicken-chabai-server-ruhulaminpollob.vercel.app/chef")
             .then(res => res.json())
             .then(data => setChef(data))
 
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:5000/clients")
+        fetch("https://chicken-chabai-server-ruhulaminpollob.vercel.app/clients")
             .then(res => res.json())
             .then(data => setClients(data))
     }, [])

@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: "recipe/:recipeId",
                 element: <PrivateRoute><Recipe /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.recipeId}`),
+                loader: ({ params }) => fetch(`https://chicken-chabai-server-ruhulaminpollob.vercel.app/chef/${params.recipeId}`),
             }
         ]
     },

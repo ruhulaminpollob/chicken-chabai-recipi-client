@@ -97,10 +97,10 @@ const Login = () => {
                             </div>
                         </form>
                         <div className='text-center'>
-                            <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google</button>
+                            <button onClick={handleGoogleSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Google <span>  </span></button>
                         </div>
                         <div className='text-center'>
-                            <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub</button>
+                            <button onClick={handleGitHubSignIn} className='border-2 w-full p-1 rounded font-bold'>Continue With Git Hub </button> 
                         </div>
                         <p className='text-red-400'>{error}</p>
                     </div>
