@@ -17,15 +17,15 @@ const Navigation = () => {
 
 
     return (
-        <div className="navbar bg-red-500 md:py-10 md:px-20 shadow">
+        <div className=" md:navbar  bg-red-500 py-5 md:py-10 md:px-20 shadow">
             <div className="flex-1">
-                <h1 className="   normal-case font-bold text-yellow-200 text-xl md:text-4xl">Chicken Chabai Recipe</h1>
+                <h1 className="  text-center normal-case font-bold text-yellow-200 my-5 text-xl md:text-4xl">Chicken Chabai Recipe</h1>
             </div>
             <div className="flex-none gap-2">
                 <div className='text-gray-700'>
-                    <ul className=' flex gap-2 font-bold'>
-                        <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to='/'>Home</NavLink>
-                        <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/blogs">Blogs</NavLink>
+                    <ul className=' flex gap-2 font-bold items-center justify-center'>
+                        <NavLink className={`block  lg:inline-block   ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to='/'>Home</NavLink>
+                        <NavLink className={`block  lg:inline-block   ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/blogs">Blogs</NavLink>
                         
                         <>
                             {
@@ -40,9 +40,9 @@ const Navigation = () => {
 
 
                                     </>
-                                    <NavLink onClick={() => { logOut() }} className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">LogOut<ArrowRightOnRectangleIcon className='h-6 w-6 text-white inline'></ArrowRightOnRectangleIcon></NavLink>
+                                    <NavLink onClick={() => { logOut() }} className={`block  lg:inline-block  ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">LogOut<ArrowRightOnRectangleIcon className='h-6 w-6 text-white inline'></ArrowRightOnRectangleIcon></NavLink>
 
-                                </> : <NavLink className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">Login</NavLink>
+                                </> : <NavLink className={`block lg:inline-block  ${({ isActive }) => (isActive ? 'active' : 'inactive')}`} to="/login">Login</NavLink>
 
                             }
                         </>

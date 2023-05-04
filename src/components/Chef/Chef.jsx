@@ -7,7 +7,7 @@ const Chef = ({ single }) => {
     const navigate=useNavigate()
     const { _id, name, image, experience, recipes, ratings, likes } = single
     return (
-        <div className="card card-compact w-72 my-5 bg-base-100 shadow-xl">
+        <div className="card  card-compact w-64 mx-auto my-5 bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
